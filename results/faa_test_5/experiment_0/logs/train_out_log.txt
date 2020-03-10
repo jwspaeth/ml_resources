@@ -1,0 +1,203 @@
+--------Stdout Start--------
+Config name: faa_dense_config
+Experiment num: 0
+
+Train ins shape: (216789, 6, 3)
+Train outs shape: (216789, 3)
+Train outs shape: (216789, 3)
+Model: "model"
+__________________________________________________________________________________________________
+Layer (type)                    Output Shape         Param #     Connected to                     
+==================================================================================================
+input_1 (InputLayer)            [(None, 6, 3)]       0                                            
+__________________________________________________________________________________________________
+batch_normalization (BatchNorma (None, 6, 3)         12          input_1[0][0]                    
+__________________________________________________________________________________________________
+flatten (Flatten)               (None, 18)           0           batch_normalization[0][0]        
+__________________________________________________________________________________________________
+dense (Dense)                   (None, 5)            95          flatten[0][0]                    
+__________________________________________________________________________________________________
+batch_normalization_1 (BatchNor (None, 5)            20          dense[0][0]                      
+__________________________________________________________________________________________________
+dense_1 (Dense)                 (None, 5)            30          batch_normalization_1[0][0]      
+__________________________________________________________________________________________________
+batch_normalization_2 (BatchNor (None, 5)            20          dense_1[0][0]                    
+__________________________________________________________________________________________________
+dense_2 (Dense)                 (None, 5)            30          batch_normalization_2[0][0]      
+__________________________________________________________________________________________________
+batch_normalization_3 (BatchNor (None, 5)            20          dense_2[0][0]                    
+__________________________________________________________________________________________________
+dense_3 (Dense)                 (None, 5)            30          batch_normalization_3[0][0]      
+__________________________________________________________________________________________________
+batch_normalization_4 (BatchNor (None, 5)            20          dense_3[0][0]                    
+__________________________________________________________________________________________________
+dense_4 (Dense)                 (None, 3)            18          batch_normalization_4[0][0]      
+__________________________________________________________________________________________________
+dense_5 (Dense)                 (None, 3)            18          batch_normalization_4[0][0]      
+==================================================================================================
+Total params: 313
+Trainable params: 267
+Non-trainable params: 46
+__________________________________________________________________________________________________
+Train on 216789 samples, validate on 54198 samples
+Epoch 1/200
+216789/216789 - 14s - loss: 882553601.0073 - dense_4_loss: 328050624.0000 - dense_5_loss: 554510144.0000 - val_loss: 862228545.4619 - val_dense_4_loss: 319218688.0000 - val_dense_5_loss: 542909056.0000
+Epoch 2/200
+216789/216789 - 13s - loss: 824184595.2783 - dense_4_loss: 302913248.0000 - dense_5_loss: 521257120.0000 - val_loss: 781319888.1990 - val_dense_4_loss: 284371744.0000 - val_dense_5_loss: 496858720.0000
+Epoch 3/200
+216789/216789 - 14s - loss: 732123943.5806 - dense_4_loss: 263460336.0000 - dense_5_loss: 468649792.0000 - val_loss: 676083202.4456 - val_dense_4_loss: 239431584.0000 - val_dense_5_loss: 436574528.0000
+Epoch 4/200
+216789/216789 - 13s - loss: 618670793.6575 - dense_4_loss: 215371072.0000 - dense_5_loss: 403302848.0000 - val_loss: 556952363.7206 - val_dense_4_loss: 189410432.0000 - val_dense_5_loss: 367480480.0000
+Epoch 5/200
+216789/216789 - 13s - loss: 494867016.4778 - dense_4_loss: 164109232.0000 - dense_5_loss: 330754496.0000 - val_loss: 425714621.4494 - val_dense_4_loss: 135867392.0000 - val_dense_5_loss: 289801504.0000
+Epoch 6/200
+216789/216789 - 13s - loss: 375326782.9397 - dense_4_loss: 116890728.0000 - dense_5_loss: 258432064.0000 - val_loss: 310372304.4346 - val_dense_4_loss: 92119056.0000 - val_dense_5_loss: 218221584.0000
+Epoch 7/200
+216789/216789 - 13s - loss: 276196655.4521 - dense_4_loss: 80962896.0000 - dense_5_loss: 195230000.0000 - val_loss: 226536594.7691 - val_dense_4_loss: 63401896.0000 - val_dense_5_loss: 163113184.0000
+Epoch 8/200
+216789/216789 - 13s - loss: 207334813.0938 - dense_4_loss: 58685264.0000 - dense_5_loss: 148643648.0000 - val_loss: 172866015.0621 - val_dense_4_loss: 46892376.0000 - val_dense_5_loss: 125956032.0000
+Epoch 9/200
+216789/216789 - 13s - loss: 163546423.7484 - dense_4_loss: 45509200.0000 - dense_5_loss: 118033080.0000 - val_loss: 131844354.9758 - val_dense_4_loss: 35178636.0000 - val_dense_5_loss: 96650392.0000
+Epoch 10/200
+216789/216789 - 13s - loss: 130167553.1276 - dense_4_loss: 36217532.0000 - dense_5_loss: 93947264.0000 - val_loss: 102997105.7292 - val_dense_4_loss: 27584804.0000 - val_dense_5_loss: 75400008.0000
+Epoch 11/200
+216789/216789 - 13s - loss: 101609926.7271 - dense_4_loss: 28422614.0000 - dense_5_loss: 73188048.0000 - val_loss: 74320130.0120 - val_dense_4_loss: 18963638.0000 - val_dense_5_loss: 55348116.0000
+Epoch 12/200
+216789/216789 - 13s - loss: 76551868.4927 - dense_4_loss: 21800674.0000 - dense_5_loss: 54753764.0000 - val_loss: 51605700.8328 - val_dense_4_loss: 12224865.0000 - val_dense_5_loss: 39375552.0000
+Epoch 13/200
+216789/216789 - 13s - loss: 55723257.1383 - dense_4_loss: 16788742.0000 - dense_5_loss: 38933292.0000 - val_loss: 30169823.6359 - val_dense_4_loss: 8083258.5000 - val_dense_5_loss: 22084062.0000
+Epoch 14/200
+216789/216789 - 13s - loss: 40368969.8537 - dense_4_loss: 13616788.0000 - dense_5_loss: 26753646.0000 - val_loss: 16673018.6115 - val_dense_4_loss: 5147989.5000 - val_dense_5_loss: 11523579.0000
+Epoch 15/200
+216789/216789 - 13s - loss: 31213270.6060 - dense_4_loss: 12058045.0000 - dense_5_loss: 19154498.0000 - val_loss: 12131460.2093 - val_dense_4_loss: 4099249.0000 - val_dense_5_loss: 8031347.5000
+Epoch 16/200
+216789/216789 - 13s - loss: 27055857.4402 - dense_4_loss: 11520519.0000 - dense_5_loss: 15534689.0000 - val_loss: 8077064.9608 - val_dense_4_loss: 4606736.5000 - val_dense_5_loss: 3469695.0000
+Epoch 17/200
+216789/216789 - 13s - loss: 25550572.7383 - dense_4_loss: 11280677.0000 - dense_5_loss: 14269337.0000 - val_loss: 7347470.3119 - val_dense_4_loss: 4575870.0000 - val_dense_5_loss: 2771111.5000
+Epoch 18/200
+216789/216789 - 13s - loss: 24198592.4350 - dense_4_loss: 10799572.0000 - dense_5_loss: 13400349.0000 - val_loss: 6888552.9691 - val_dense_4_loss: 4164590.2500 - val_dense_5_loss: 2723424.5000
+Epoch 19/200
+216789/216789 - 13s - loss: 23402522.3760 - dense_4_loss: 10533604.0000 - dense_5_loss: 12871436.0000 - val_loss: 7834433.0675 - val_dense_4_loss: 4668925.5000 - val_dense_5_loss: 3165085.2500
+Epoch 20/200
+216789/216789 - 13s - loss: 22374382.4730 - dense_4_loss: 10166336.0000 - dense_5_loss: 12208433.0000 - val_loss: 7555368.9901 - val_dense_4_loss: 3803893.7500 - val_dense_5_loss: 3750819.7500
+Epoch 21/200
+216789/216789 - 13s - loss: 22072754.5240 - dense_4_loss: 10053053.0000 - dense_5_loss: 12021144.0000 - val_loss: 6284543.8723 - val_dense_4_loss: 4076010.7500 - val_dense_5_loss: 2208057.5000
+Epoch 22/200
+216789/216789 - 13s - loss: 21622104.1972 - dense_4_loss: 9818967.0000 - dense_5_loss: 11803307.0000 - val_loss: 6164565.2276 - val_dense_4_loss: 3444319.7500 - val_dense_5_loss: 2719737.7500
+Epoch 23/200
+216789/216789 - 13s - loss: 21526483.0343 - dense_4_loss: 9781249.0000 - dense_5_loss: 11746536.0000 - val_loss: 6540294.5929 - val_dense_4_loss: 4566220.5000 - val_dense_5_loss: 1973672.3750
+Epoch 24/200
+216789/216789 - 13s - loss: 21335686.4642 - dense_4_loss: 9657360.0000 - dense_5_loss: 11678926.0000 - val_loss: 6497357.2991 - val_dense_4_loss: 2883960.0000 - val_dense_5_loss: 3612993.5000
+Epoch 25/200
+216789/216789 - 13s - loss: 20664167.9849 - dense_4_loss: 9320700.0000 - dense_5_loss: 11344562.0000 - val_loss: 4879906.3467 - val_dense_4_loss: 3250775.2500 - val_dense_5_loss: 1628795.6250
+Epoch 26/200
+216789/216789 - 13s - loss: 20367990.8135 - dense_4_loss: 9081204.0000 - dense_5_loss: 11286341.0000 - val_loss: 5186678.3847 - val_dense_4_loss: 2154911.2500 - val_dense_5_loss: 3031461.2500
+Epoch 27/200
+216789/216789 - 13s - loss: 19948436.9267 - dense_4_loss: 8823750.0000 - dense_5_loss: 11124570.0000 - val_loss: 4033149.5915 - val_dense_4_loss: 2584269.0000 - val_dense_5_loss: 1448621.6250
+Epoch 28/200
+216789/216789 - 13s - loss: 19707290.2979 - dense_4_loss: 8679931.0000 - dense_5_loss: 11028012.0000 - val_loss: 3793241.3270 - val_dense_4_loss: 2437217.7500 - val_dense_5_loss: 1355805.8750
+Epoch 29/200
+216789/216789 - 13s - loss: 19385523.9100 - dense_4_loss: 8467659.0000 - dense_5_loss: 10918463.0000 - val_loss: 4081204.5951 - val_dense_4_loss: 2072243.2500 - val_dense_5_loss: 2008542.6250
+Epoch 30/200
+216789/216789 - 13s - loss: 19124210.1874 - dense_4_loss: 8295151.5000 - dense_5_loss: 10829651.0000 - val_loss: 3388366.2805 - val_dense_4_loss: 1772722.5000 - val_dense_5_loss: 1615268.0000
+Epoch 31/200
+216789/216789 - 13s - loss: 18400389.1197 - dense_4_loss: 7934983.0000 - dense_5_loss: 10465180.0000 - val_loss: 2649320.0933 - val_dense_4_loss: 1560386.5000 - val_dense_5_loss: 1088768.5000
+Epoch 32/200
+216789/216789 - 13s - loss: 18580422.4314 - dense_4_loss: 8001034.0000 - dense_5_loss: 10579007.0000 - val_loss: 3564045.7368 - val_dense_4_loss: 1234237.7500 - val_dense_5_loss: 2329522.2500
+Epoch 33/200
+216789/216789 - 13s - loss: 18285450.2704 - dense_4_loss: 7827257.5000 - dense_5_loss: 10458613.0000 - val_loss: 2589800.5771 - val_dense_4_loss: 1257525.2500 - val_dense_5_loss: 1332057.5000
+Epoch 34/200
+216789/216789 - 13s - loss: 17948852.7212 - dense_4_loss: 7690950.0000 - dense_5_loss: 10259059.0000 - val_loss: 2416246.3293 - val_dense_4_loss: 951759.8125 - val_dense_5_loss: 1464201.2500
+Epoch 35/200
+216789/216789 - 13s - loss: 17830627.0777 - dense_4_loss: 7615540.5000 - dense_5_loss: 10215339.0000 - val_loss: 3366886.7541 - val_dense_4_loss: 1213189.7500 - val_dense_5_loss: 2153459.0000
+Epoch 36/200
+216789/216789 - 13s - loss: 17903621.8021 - dense_4_loss: 7626133.5000 - dense_5_loss: 10276989.0000 - val_loss: 1993483.1902 - val_dense_4_loss: 877394.9375 - val_dense_5_loss: 1115876.5000
+Epoch 37/200
+216789/216789 - 13s - loss: 17882149.5371 - dense_4_loss: 7609161.5000 - dense_5_loss: 10273192.0000 - val_loss: 2111922.5990 - val_dense_4_loss: 991379.4375 - val_dense_5_loss: 1120281.1250
+Epoch 38/200
+216789/216789 - 13s - loss: 17790998.2969 - dense_4_loss: 7582691.5000 - dense_5_loss: 10209126.0000 - val_loss: 2083086.1164 - val_dense_4_loss: 1121888.7500 - val_dense_5_loss: 961033.6875
+Epoch 39/200
+216789/216789 - 14s - loss: 17541365.0658 - dense_4_loss: 7448536.5000 - dense_5_loss: 10092241.0000 - val_loss: 3587292.0661 - val_dense_4_loss: 1260180.5000 - val_dense_5_loss: 2327055.5000
+Epoch 40/200
+216789/216789 - 14s - loss: 17589101.6242 - dense_4_loss: 7452465.5000 - dense_5_loss: 10136217.0000 - val_loss: 3280958.2882 - val_dense_4_loss: 1300586.2500 - val_dense_5_loss: 1980187.3750
+Epoch 41/200
+216789/216789 - 13s - loss: 17387511.2013 - dense_4_loss: 7365141.0000 - dense_5_loss: 10021900.0000 - val_loss: 2451894.9038 - val_dense_4_loss: 862109.6250 - val_dense_5_loss: 1589669.8750
+Epoch 42/200
+216789/216789 - 13s - loss: 17549876.3449 - dense_4_loss: 7429498.5000 - dense_5_loss: 10120642.0000 - val_loss: 2301758.5794 - val_dense_4_loss: 1051910.7500 - val_dense_5_loss: 1249706.7500
+Epoch 43/200
+216789/216789 - 13s - loss: 17171689.8451 - dense_4_loss: 7273527.0000 - dense_5_loss: 9898572.0000 - val_loss: 2785046.6718 - val_dense_4_loss: 1250136.8750 - val_dense_5_loss: 1534745.7500
+Epoch 44/200
+216789/216789 - 13s - loss: 17168964.6924 - dense_4_loss: 7283448.5000 - dense_5_loss: 9885926.0000 - val_loss: 2394474.8080 - val_dense_4_loss: 918393.5625 - val_dense_5_loss: 1475805.8750
+Epoch 45/200
+216789/216789 - 12s - loss: 17148047.0051 - dense_4_loss: 7249130.5000 - dense_5_loss: 9899869.0000 - val_loss: 2611901.8450 - val_dense_4_loss: 903532.8125 - val_dense_5_loss: 1708106.3750
+Epoch 46/200
+216789/216789 - 12s - loss: 17051224.0345 - dense_4_loss: 7205842.0000 - dense_5_loss: 9846054.0000 - val_loss: 2812154.4814 - val_dense_4_loss: 973309.1250 - val_dense_5_loss: 1838531.2500
+Epoch 47/200
+216789/216789 - 13s - loss: 16959746.7626 - dense_4_loss: 7143953.5000 - dense_5_loss: 9816897.0000 - val_loss: 2136293.1104 - val_dense_4_loss: 812789.8125 - val_dense_5_loss: 1323248.3750
+Epoch 48/200
+216789/216789 - 13s - loss: 17020790.3627 - dense_4_loss: 7161371.0000 - dense_5_loss: 9860010.0000 - val_loss: 2505435.5509 - val_dense_4_loss: 855105.3750 - val_dense_5_loss: 1649995.0000
+Epoch 49/200
+216789/216789 - 12s - loss: 16825877.0835 - dense_4_loss: 7096335.0000 - dense_5_loss: 9732393.0000 - val_loss: 2656333.4730 - val_dense_4_loss: 1299372.0000 - val_dense_5_loss: 1356844.0000
+Epoch 50/200
+216789/216789 - 12s - loss: 16634060.3261 - dense_4_loss: 7042824.5000 - dense_5_loss: 9592348.0000 - val_loss: 1916921.9047 - val_dense_4_loss: 737736.6250 - val_dense_5_loss: 1178971.3750
+Epoch 51/200
+216789/216789 - 12s - loss: 16635524.6742 - dense_4_loss: 7016421.0000 - dense_5_loss: 9619994.0000 - val_loss: 2062621.5816 - val_dense_4_loss: 721643.6250 - val_dense_5_loss: 1340731.3750
+Epoch 52/200
+216789/216789 - 12s - loss: 16663422.4505 - dense_4_loss: 7006556.0000 - dense_5_loss: 9657391.0000 - val_loss: 2417788.1875 - val_dense_4_loss: 681024.8125 - val_dense_5_loss: 1736548.3750
+Epoch 53/200
+216789/216789 - 12s - loss: 16803490.2688 - dense_4_loss: 7061321.0000 - dense_5_loss: 9741714.0000 - val_loss: 2171473.3734 - val_dense_4_loss: 890597.6875 - val_dense_5_loss: 1280667.6250
+Epoch 54/200
+216789/216789 - 12s - loss: 16697885.7646 - dense_4_loss: 6978730.5000 - dense_5_loss: 9719326.0000 - val_loss: 2688096.6730 - val_dense_4_loss: 781309.5625 - val_dense_5_loss: 1906676.6250
+Epoch 55/200
+216789/216789 - 12s - loss: 16455256.7428 - dense_4_loss: 6895016.5000 - dense_5_loss: 9561694.0000 - val_loss: 2264132.2011 - val_dense_4_loss: 1021091.1250 - val_dense_5_loss: 1242850.6250
+Epoch 56/200
+216789/216789 - 13s - loss: 16487934.9890 - dense_4_loss: 6903404.0000 - dense_5_loss: 9584126.0000 - val_loss: 1801417.0468 - val_dense_4_loss: 697639.3750 - val_dense_5_loss: 1103571.3750
+Epoch 57/200
+216789/216789 - 12s - loss: 16343453.6680 - dense_4_loss: 6869154.5000 - dense_5_loss: 9474721.0000 - val_loss: 1700041.5371 - val_dense_4_loss: 651298.0625 - val_dense_5_loss: 1048534.3125
+Epoch 58/200
+216789/216789 - 12s - loss: 15962073.9470 - dense_4_loss: 6647249.5000 - dense_5_loss: 9314916.0000 - val_loss: 1706175.6309 - val_dense_4_loss: 808288.0625 - val_dense_5_loss: 897679.8750
+Epoch 59/200
+216789/216789 - 12s - loss: 16436780.2398 - dense_4_loss: 6862729.0000 - dense_5_loss: 9573539.0000 - val_loss: 2355312.5036 - val_dense_4_loss: 986548.9375 - val_dense_5_loss: 1368449.8750
+Epoch 60/200
+216789/216789 - 12s - loss: 16466544.3177 - dense_4_loss: 6871356.5000 - dense_5_loss: 9595083.0000 - val_loss: 2341400.2172 - val_dense_4_loss: 690780.1250 - val_dense_5_loss: 1650518.2500
+Epoch 61/200
+216789/216789 - 12s - loss: 16224628.4996 - dense_4_loss: 6797061.5000 - dense_5_loss: 9427765.0000 - val_loss: 2027710.7821 - val_dense_4_loss: 846763.4375 - val_dense_5_loss: 1180774.2500
+Epoch 62/200
+216789/216789 - 12s - loss: 16296359.7292 - dense_4_loss: 6806064.5000 - dense_5_loss: 9489963.0000 - val_loss: 2228589.1090 - val_dense_4_loss: 737386.6250 - val_dense_5_loss: 1490920.2500
+Epoch 63/200
+216789/216789 - 12s - loss: 16177746.2565 - dense_4_loss: 6738705.5000 - dense_5_loss: 9439281.0000 - val_loss: 1921324.4982 - val_dense_4_loss: 678028.0000 - val_dense_5_loss: 1243041.7500
+Epoch 64/200
+216789/216789 - 13s - loss: 16090120.9151 - dense_4_loss: 6705320.0000 - dense_5_loss: 9385547.0000 - val_loss: 1822925.7935 - val_dense_4_loss: 717523.3125 - val_dense_5_loss: 1105212.8750
+Epoch 65/200
+216789/216789 - 13s - loss: 15758796.1382 - dense_4_loss: 6583744.0000 - dense_5_loss: 9175512.0000 - val_loss: 2064934.8125 - val_dense_4_loss: 789789.7500 - val_dense_5_loss: 1274992.2500
+Epoch 66/200
+216789/216789 - 13s - loss: 16100769.4628 - dense_4_loss: 6717141.5000 - dense_5_loss: 9383579.0000 - val_loss: 1939602.3547 - val_dense_4_loss: 722300.2500 - val_dense_5_loss: 1217102.6250
+Epoch 67/200
+216789/216789 - 13s - loss: 15802363.5080 - dense_4_loss: 6599812.0000 - dense_5_loss: 9202565.0000 - val_loss: 1986188.9221 - val_dense_4_loss: 639825.6250 - val_dense_5_loss: 1346221.7500
+Epoch 68/200
+216789/216789 - 12s - loss: 16074580.8300 - dense_4_loss: 6714859.0000 - dense_5_loss: 9360253.0000 - val_loss: 1715790.8450 - val_dense_4_loss: 710371.3125 - val_dense_5_loss: 1005292.9375
+Epoch 69/200
+216789/216789 - 12s - loss: 15683060.5900 - dense_4_loss: 6513794.5000 - dense_5_loss: 9169182.0000 - val_loss: 1501565.9932 - val_dense_4_loss: 615474.2500 - val_dense_5_loss: 885921.1250
+Epoch 70/200
+216789/216789 - 12s - loss: 15697776.1169 - dense_4_loss: 6556246.0000 - dense_5_loss: 9142306.0000 - val_loss: 1874440.0510 - val_dense_4_loss: 980436.0000 - val_dense_5_loss: 893832.6875
+Epoch 71/200
+216789/216789 - 12s - loss: 15828900.5526 - dense_4_loss: 6594752.5000 - dense_5_loss: 9234065.0000 - val_loss: 2533370.4907 - val_dense_4_loss: 850478.6250 - val_dense_5_loss: 1682783.6250
+Epoch 72/200
+216789/216789 - 12s - loss: 15579847.1837 - dense_4_loss: 6473499.0000 - dense_5_loss: 9109580.0000 - val_loss: 1534009.9771 - val_dense_4_loss: 557006.9375 - val_dense_5_loss: 976814.7500
+Epoch 73/200
+216789/216789 - 12s - loss: 15698078.8031 - dense_4_loss: 6535987.5000 - dense_5_loss: 9161693.0000 - val_loss: 1857864.3135 - val_dense_4_loss: 794041.9375 - val_dense_5_loss: 1063602.7500
+Epoch 74/200
+216789/216789 - 12s - loss: 15524029.1370 - dense_4_loss: 6459499.5000 - dense_5_loss: 9066315.0000 - val_loss: 1667967.9431 - val_dense_4_loss: 583649.3750 - val_dense_5_loss: 1084149.3750
+Epoch 75/200
+216789/216789 - 12s - loss: 15594339.0537 - dense_4_loss: 6486333.0000 - dense_5_loss: 9107469.0000 - val_loss: 1297662.5360 - val_dense_4_loss: 504891.5938 - val_dense_5_loss: 792626.3125
+Epoch 76/200
+216789/216789 - 12s - loss: 15824629.2501 - dense_4_loss: 6610928.5000 - dense_5_loss: 9213672.0000 - val_loss: 1510318.8019 - val_dense_4_loss: 649433.4375 - val_dense_5_loss: 860736.6250
+Epoch 77/200
+216789/216789 - 12s - loss: 15798077.6689 - dense_4_loss: 6594333.5000 - dense_5_loss: 9204097.0000 - val_loss: 1748689.0080 - val_dense_4_loss: 574433.0000 - val_dense_5_loss: 1174081.5000
+Epoch 78/200
+216789/216789 - 12s - loss: 15554969.3916 - dense_4_loss: 6480872.0000 - dense_5_loss: 9075585.0000 - val_loss: 1690362.7720 - val_dense_4_loss: 531998.8750 - val_dense_5_loss: 1158188.6250
+Epoch 79/200
+216789/216789 - 12s - loss: 15603107.5427 - dense_4_loss: 6502434.0000 - dense_5_loss: 9101947.0000 - val_loss: 2023612.3657 - val_dense_4_loss: 640269.8125 - val_dense_5_loss: 1383173.5000
+Epoch 80/200
+216789/216789 - 13s - loss: 15466383.1945 - dense_4_loss: 6436101.5000 - dense_5_loss: 9030764.0000 - val_loss: 1417548.6098 - val_dense_4_loss: 539367.0000 - val_dense_5_loss: 878031.6250
+Epoch 81/200

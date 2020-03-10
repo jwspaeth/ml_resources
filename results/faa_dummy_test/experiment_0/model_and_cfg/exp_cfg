@@ -1,0 +1,37 @@
+callbacks:
+  names:
+  - FileMetricLogger
+dataset:
+  feature_length: 6
+  name: FaaDataset
+evaluate:
+  evaluation_functions:
+  - infant_test_func
+  reload_path: results/faa_dummy_test/*/
+misc:
+  default_duplicate: 1
+mode: train
+model:
+  batch_norms:
+  - 1
+  - 1
+  - 1
+  dropout: 0.5
+  hidden_sizes:
+  - 30
+  - 10
+  - 20
+  input_axis_norm: 2
+  name: faa_dense
+  output_act: linear
+  output_size: 3
+  reload_path: ''
+save:
+  experiment_batch_name: faa_dummy_test
+train:
+  batch_size: 32
+  epochs: 200
+  loss: mse
+  metrics: []
+  optimizer: adam
+  verbose: 2

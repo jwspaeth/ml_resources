@@ -1,0 +1,48 @@
+callbacks:
+  EarlyStopping:
+    min_delta: 0.0001
+    patience: 50
+  names:
+  - EarlyStopping
+  - FileMetricLogger
+dataset:
+  name: Core50Dataset
+evaluate: {}
+misc:
+  default_duplicate: 5
+mode: train
+model:
+  conv:
+    batch_norms:
+    - 1
+    filters:
+    - 10
+    kernels:
+    - 3
+    l2: 0
+    max_pool_sizes:
+    - 2
+    strides:
+    - 2
+  dense:
+    batch_norms:
+    - 1
+    dropout: 0
+    hidden_sizes:
+    - 100
+  input_axis_norm: 3
+  name: cnn
+  output:
+    activation: softmax
+    output_size: 2
+  reload_path: ''
+save:
+  experiment_batch_name: very_shallow_test_1
+train:
+  batch_size: 32
+  epochs: 200
+  learning_rate: 0.001
+  loss: mse
+  metrics:
+  - acc
+  verbose: 2

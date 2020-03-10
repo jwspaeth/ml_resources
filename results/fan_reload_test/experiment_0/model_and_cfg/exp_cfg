@@ -1,0 +1,51 @@
+callbacks:
+  names:
+  - FileMetricLogger
+dataset:
+  feature_names:
+  - left_wrist_x
+  name: InfantDataset
+  offset: 6
+  shape: sigmoid
+  train_subject_names:
+  - k3
+  val_subject_names: []
+evaluate:
+  evaluation_functions: []
+misc:
+  default_duplicate: 1
+mode: train
+model:
+  avg_pool:
+    padding: same
+    pool_size: 30
+  conv:
+    activation_lambda: 0
+    batch_norms:
+    - 0
+    cross_filter_lambda: 0
+    filters:
+    - 5
+    kernels:
+    - 25
+    l2: 0
+    max_pool_sizes:
+    - 1
+    strides:
+    - 1
+  input_axis_norm: 2
+  max_pool:
+    padding: same
+    pool_size: 500
+  name: fan
+  rate_modifier: 2
+  reload_path: results/fan_dummy_test/experiment_0/
+save:
+  experiment_batch_name: fan_reload_test
+train:
+  batch_size: 32
+  epochs: 200
+  loss: mse
+  metrics: []
+  optimizer: adam
+  verbose: 2

@@ -1,0 +1,29 @@
+--------Stderr Start--------
+Traceback (most recent call last):
+  File "main.py", line 339, in <module>
+    train()
+  File "main.py", line 237, in train
+    verbose=exp_cfg.train.verbose
+  File "/Users/willspaeth/anaconda3/envs/Analysis-MacOs-Env-2/lib/python3.7/site-packages/tensorflow_core/python/keras/engine/training.py", line 819, in fit
+    use_multiprocessing=use_multiprocessing)
+  File "/Users/willspaeth/anaconda3/envs/Analysis-MacOs-Env-2/lib/python3.7/site-packages/tensorflow_core/python/keras/engine/training_v2.py", line 342, in fit
+    total_epochs=epochs)
+  File "/Users/willspaeth/anaconda3/envs/Analysis-MacOs-Env-2/lib/python3.7/site-packages/tensorflow_core/python/keras/engine/training_v2.py", line 128, in run_one_epoch
+    batch_outs = execution_function(iterator)
+  File "/Users/willspaeth/anaconda3/envs/Analysis-MacOs-Env-2/lib/python3.7/site-packages/tensorflow_core/python/keras/engine/training_v2_utils.py", line 98, in execution_function
+    distributed_function(input_fn))
+  File "/Users/willspaeth/anaconda3/envs/Analysis-MacOs-Env-2/lib/python3.7/site-packages/tensorflow_core/python/eager/def_function.py", line 568, in __call__
+    result = self._call(*args, **kwds)
+  File "/Users/willspaeth/anaconda3/envs/Analysis-MacOs-Env-2/lib/python3.7/site-packages/tensorflow_core/python/eager/def_function.py", line 599, in _call
+    return self._stateless_fn(*args, **kwds)  # pylint: disable=not-callable
+  File "/Users/willspaeth/anaconda3/envs/Analysis-MacOs-Env-2/lib/python3.7/site-packages/tensorflow_core/python/eager/function.py", line 2363, in __call__
+    return graph_function._filtered_call(args, kwargs)  # pylint: disable=protected-access
+  File "/Users/willspaeth/anaconda3/envs/Analysis-MacOs-Env-2/lib/python3.7/site-packages/tensorflow_core/python/eager/function.py", line 1611, in _filtered_call
+    self.captured_inputs)
+  File "/Users/willspaeth/anaconda3/envs/Analysis-MacOs-Env-2/lib/python3.7/site-packages/tensorflow_core/python/eager/function.py", line 1692, in _call_flat
+    ctx, args, cancellation_manager=cancellation_manager))
+  File "/Users/willspaeth/anaconda3/envs/Analysis-MacOs-Env-2/lib/python3.7/site-packages/tensorflow_core/python/eager/function.py", line 545, in call
+    ctx=ctx)
+  File "/Users/willspaeth/anaconda3/envs/Analysis-MacOs-Env-2/lib/python3.7/site-packages/tensorflow_core/python/eager/execute.py", line 61, in quick_execute
+    num_outputs)
+KeyboardInterrupt

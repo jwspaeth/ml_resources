@@ -1,0 +1,17 @@
+--------Stderr Start--------
+Traceback (most recent call last):
+  File "main.py", line 338, in <module>
+    train()
+  File "main.py", line 236, in train
+    verbose=exp_cfg.train.verbose
+  File "/Users/willspaeth/anaconda3/envs/Analysis-MacOs-Env-2/lib/python3.7/site-packages/tensorflow_core/python/keras/engine/training.py", line 819, in fit
+    use_multiprocessing=use_multiprocessing)
+  File "/Users/willspaeth/anaconda3/envs/Analysis-MacOs-Env-2/lib/python3.7/site-packages/tensorflow_core/python/keras/engine/training_v2.py", line 395, in fit
+    total_epochs=1)
+  File "/Users/willspaeth/anaconda3/envs/Analysis-MacOs-Env-2/lib/python3.7/site-packages/tensorflow_core/python/keras/engine/training_v2.py", line 128, in run_one_epoch
+    batch_outs = execution_function(iterator)
+  File "/Users/willspaeth/anaconda3/envs/Analysis-MacOs-Env-2/lib/python3.7/site-packages/tensorflow_core/python/keras/engine/training_v2_utils.py", line 98, in execution_function
+    distributed_function(input_fn))
+  File "/Users/willspaeth/anaconda3/envs/Analysis-MacOs-Env-2/lib/python3.7/site-packages/tensorflow_core/python/eager/def_function.py", line 570, in __call__
+    if tracing_count == self._get_tracing_count():
+KeyboardInterrupt

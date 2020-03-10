@@ -1,0 +1,6 @@
+Best val loss: 0.29681826805948613
+Best val dict: {"val_loss": "0.29681826805948613", "val_acc": "0.49078727"}
+Best val epoch: 0
+
+Epoch 1
+{"loss": "0.22785097422699133", "acc": "0.61037236"}
