@@ -265,6 +265,63 @@ def train():
     # Log results
     log_results(data_dict, model, exp_cfg, fbase)
 
+def train_RL():
+    """Trains one ML model"""
+
+    # Get configuration values
+    cfg_name = get_cfg_name()
+    experiment_num = get_exp_num()
+    cfg_handler = config_handler(cfg_name)
+    exp_cfg = cfg_handler.get_experiment(experiment_num)
+
+    # Define fbase and create tree
+    fbase = "results/"
+    if not os.path.exists(fbase):
+        os.mkdir(fbase)
+    fbase += "{}/".format(exp_cfg.save.experiment_batch_name)
+    if not os.path.exists(fbase):
+        os.mkdir(fbase)
+    fbase += "experiment_{}/".format(experiment_num)
+    if not os.path.exists(fbase):
+        os.mkdir(fbase)
+
+    # Create print mechanisms
+    reset_log_files(fbase, exp_cfg.mode)
+    redirect_stdout(fbase, exp_cfg.mode)
+    redirect_stderr(fbase, exp_cfg.mode)
+
+    # Cache configuration for future reload
+    save_cfg(exp_cfg, fbase)
+
+    # Print info
+    print("Config name: {}".format(cfg_name))
+    print("Experiment num: {}".format(experiment_num))
+    print()
+
+    '''
+    Reinforcement Learning Rebuild
+        • Create agent
+            • Create models
+            • Create dataset
+            • Create policy
+        • Create driver
+            • Create observers
+            • Create environment
+        • Create replay buffer
+        • Start driver thread
+        • Start agent thread
+        • Log
+
+    To do
+        • Agent class
+        • Dataset class
+        • Policy class
+        • Driver class
+        • Observer class
+        • Environment class
+        • Log method
+    '''
+
 def log_results(data, model, exp_cfg, fbase):
     """Log results to file"""
 

@@ -60,7 +60,9 @@ _D.misc.default_duplicate = 1 # Duplicates experiments by this amount. Only acti
 
 # Construct list of configuration keys and their possible options
 # • If the key is in the list, the default is overwritten, unless its corresponding value list is empty
-all_options_dict = {}
+all_options_dict = {
+	"_D.train.learning_rate": []
+}
 
 
 

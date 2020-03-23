@@ -6,11 +6,11 @@ from custom_losses import fan_mse
 _D = CN()
 
 # Training or evaluation
-_D.mode = "eval"
+_D.mode = "train"
 
 # Save parameters
 _D.save = CN()
-_D.save.experiment_batch_name = "fan_dummy_test"
+_D.save.experiment_batch_name = "fan_example"
 
 # Dataset parameters
 _D.dataset = CN()
@@ -49,8 +49,8 @@ _D.model.reload_path = ""
 
 # Training parameters
 _D.train = CN()
-_D.train.optimizer = "adam"
-_D.train.epochs = 200
+_D.train.learning_rate = .001
+_D.train.epochs = 10
 _D.train.batch_size = 32
 _D.train.loss = "fan_mse"
 _D.train.metrics = []
