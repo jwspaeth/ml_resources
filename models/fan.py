@@ -6,10 +6,9 @@ from tensorflow.keras import backend
 from custom_layers import pipe_model, conv_stack_1d
 
 # To Do
+#   • Incomplete: Track kernel l2 as metric
 #   • Incomplete: Rebuild visualizations
 #   • Incomplete: Figure out why labels work despite mismatch
-#   • Incomplete: activation regularization
-#   • Incomplete: cross-filter regularization
 
 def fan(input_size, exp_cfg):
     """Constructs the frequency analysis neural network"""
@@ -17,8 +16,6 @@ def fan(input_size, exp_cfg):
     layers = []
 
     # Tack on any remaining regularization to convolution layer
-    #   • Incomplete: activation regularization
-    #   • Incomplete: cross-filter regularization
     layers.append(
         conv_stack_1d(
                 filters=exp_cfg.model.conv.filters,
@@ -27,7 +24,7 @@ def fan(input_size, exp_cfg):
                 max_pool_sizes=exp_cfg.model.conv.max_pool_sizes,
                 batch_norms=exp_cfg.model.conv.batch_norms,
                 l2=exp_cfg.model.conv.l2,
-                cross_filter_lambda=exp_cfg.model.conv.cross_filter_lambda,
+                cross_activation_lambda=exp_cfg.model.conv.cross_activation_lambda,
                 activation_lambda=exp_cfg.model.conv.activation_lambda,
                 names=exp_cfg.model.conv.names
             )

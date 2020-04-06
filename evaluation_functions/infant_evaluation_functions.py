@@ -45,6 +45,7 @@ def create_ranked_filters(dataset, model, exp_cfg, revived_cfg, results, filenam
 def create_stacked_filter_responses(dataset, model, exp_cfg, revived_cfg, results, filename):
 	
 	# Get input data
+	data = dataset.load_data()
 
 	# Get filter response matrix
 
@@ -54,6 +55,7 @@ def create_stacked_filter_responses(dataset, model, exp_cfg, revived_cfg, result
 def created_stacked_filter_responses_across_weeks(dataset, model, exp_cfg, revived_cfg, results, filename):
 	
 	# Get input data
+	data = dataset.load_data()
 
 	# Get filter response matrix
 
@@ -63,6 +65,7 @@ def created_stacked_filter_responses_across_weeks(dataset, model, exp_cfg, reviv
 def create_trajectory_responses(dataset, model, exp_cfg, revived_cfg, results, filename):
 	
 	# Get input data
+	data = dataset.load_data()
 
 	# Get filter response matrix
 

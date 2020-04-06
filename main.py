@@ -351,7 +351,7 @@ def log_results(data, model, exp_cfg, fbase):
         os.mkdir("{}/model_and_cfg/".format(fbase))
 
     # Save model
-    model.save("{}/model_and_cfg/saved_weights.h5".format(fbase), save_format="tf")
+    model.save_weights("{}/model_and_cfg/saved_weights.h5".format(fbase))
 
     # Save brief results for human readability
     with open("{}results_brief.txt".format(fbase), "w") as f:

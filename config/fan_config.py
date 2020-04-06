@@ -26,14 +26,14 @@ _D.model = CN()
 _D.model.name = "fan"
 _D.model.input_axis_norm = 2
 _D.model.conv = CN()
-_D.model.conv.filters = [3]
+_D.model.conv.filters = [5]
 _D.model.conv.kernels = [25] # Half second window
 _D.model.conv.strides = [1]
-_D.model.conv.max_pool_sizes = [1]
+_D.model.conv.max_pool_sizes = []
 _D.model.conv.batch_norms = [0]
-_D.model.conv.l2 = 0
-_D.model.conv.cross_filter_lambda = 0
-_D.model.conv.activation_lambda = 0
+_D.model.conv.l2 = .00001
+_D.model.conv.activation_lambda = .00001
+_D.model.conv.cross_activation_lambda = .1
 _D.model.conv.names = ["conv"]
 _D.model.max_pool = CN()
 _D.model.max_pool.pool_size = (10 * 50) # Seconds * (timesteps/second)
@@ -62,7 +62,7 @@ _D.callbacks.names = ["FileMetricLogger"]
 
 # Evaluation parameters
 _D.evaluate = CN()
-_D.evaluate.reload_path = "results/fan_dummy_test/*/"
+_D.evaluate.reload_path = "results/fan_dummy_test/*/" # Can accept entire batch of results
 #_D.evaluate.evaluation_functions = ["test_func", "create_ranked_filters"]
 _D.evaluate.evaluation_functions = ["infant_test_func"]
 
