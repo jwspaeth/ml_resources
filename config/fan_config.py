@@ -6,7 +6,7 @@ from custom_losses import fan_mse
 _D = CN()
 
 # Training or evaluation
-_D.mode = "train"
+_D.mode = "eval"
 
 # Save parameters
 _D.save = CN()
@@ -62,7 +62,7 @@ _D.callbacks.names = ["FileMetricLogger"]
 
 # Evaluation parameters
 _D.evaluate = CN()
-_D.evaluate.reload_path = "results/fan_dummy_test/*/" # Can accept entire batch of results
+_D.evaluate.reload_path = "results/fan_example/*/" # Can accept entire batch of results
 #_D.evaluate.evaluation_functions = ["test_func", "create_ranked_filters"]
 _D.evaluate.evaluation_functions = ["infant_test_func"]
 
