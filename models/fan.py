@@ -2,12 +2,13 @@
 from tensorflow.keras.models import Model
 from tensorflow.keras.layers import Input, BatchNormalization, MaxPool1D, AveragePooling1D, Lambda
 from tensorflow.keras import backend
+import numpy as np
 
 from custom_layers import pipe_model, conv_stack_1d
 
 # To Do
-#   • Incomplete: Track kernel l2 as metric
 #   • Incomplete: Rebuild visualizations
+#   • Incomplete: Verify training is working correctly
 #   • Incomplete: Figure out why labels work despite mismatch
 
 def fan(input_size, exp_cfg):
@@ -61,3 +62,7 @@ def fan(input_size, exp_cfg):
     outputs = pipe_model(inputs, layers)
 
     return Model(inputs=inputs, outputs=outputs)
+
+
+
+

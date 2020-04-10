@@ -24,23 +24,23 @@ _D.dataset.val_subject_names = []
 # Model parameters
 _D.model = CN()
 _D.model.name = "fan"
-_D.model.input_axis_norm = 2
+_D.model.input_axis_norm = 2 # Don't touch
 _D.model.conv = CN()
 _D.model.conv.filters = [5]
 _D.model.conv.kernels = [25] # Half second window
-_D.model.conv.strides = [1]
-_D.model.conv.max_pool_sizes = []
-_D.model.conv.batch_norms = [0]
+_D.model.conv.strides = [1] # Don't touch
+_D.model.conv.max_pool_sizes = [] # Don't touch
+_D.model.conv.batch_norms = [0] # Don't touch
 _D.model.conv.l2 = .00001
 _D.model.conv.activation_lambda = .00001
 _D.model.conv.cross_activation_lambda = .1
 _D.model.conv.names = ["conv"]
 _D.model.max_pool = CN()
 _D.model.max_pool.pool_size = (10 * 50) # Seconds * (timesteps/second)
-_D.model.max_pool.padding = "same"
+_D.model.max_pool.padding = "same" # Don't touch
 _D.model.avg_pool = CN()
 _D.model.avg_pool.pool_size = 30
-_D.model.avg_pool.padding = "same"
+_D.model.avg_pool.padding = "same" # Don't touch
 _D.model.rate_modifier = 2
 # If reload is an empty string, doesn't do anything. Otherwise looks for the reload location.
 # If reload location is found, it reloads the architecture and weights from file while forgetting

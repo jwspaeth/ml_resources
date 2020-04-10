@@ -40,8 +40,6 @@ def conv_stack_1d(filters, kernels, strides, max_pool_sizes, batch_norms=0, padd
                         name=names[i]
             ))
 
-        # To do: Track kernel l2 here
-
         if cross_activation_lambda > 0:
             layers.append(CrossActivationRegularization(n_filters=filters[i], cross_activation_lambda=cross_activation_lambda))
 

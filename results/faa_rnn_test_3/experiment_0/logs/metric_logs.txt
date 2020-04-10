@@ -1,6 +1,0 @@
-Best val loss: 400926904.40975684
-Best val dict: {"val_loss": "400926904.40975684", "val_dense_loss": "137974740.0", "val_dense_1_loss": "262897700.0"}
-Best val epoch: 6
-
-Epoch 7
-{"loss": "378215021.34207916", "dense_loss": "129402000.0", "dense_1_loss": "248810080.0"}

@@ -1,4 +1,0 @@
-Number of experiments: 1
-{}
-
-	Experiment 0: {"default": null}

@@ -1,4 +1,0 @@
-Number of experiments: 1
-{"model.conv.filters": [], "model.conv.kernels": [], "model.conv.strides": [], "model.conv.l2": [], "model.dense": [], "model.dense.hidden_sizes": [], "model.dense.dropout": []}
-
-	Experiment 0: {"default": null}
