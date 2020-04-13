@@ -17,7 +17,7 @@ _D.dataset = CN()
 _D.dataset.name = "InfantDataset"
 _D.dataset.shape = "sigmoid"
 _D.dataset.offset = 6
-_D.dataset.feature_names = ["left_wrist_x"]
+_D.dataset.feature_names = ["left_wrist_x", "left_wrist_y", "left_wrist_z"]
 _D.dataset.train_subject_names = ["k3"]
 _D.dataset.val_subject_names = []
 
@@ -63,8 +63,8 @@ _D.callbacks.names = ["FileMetricLogger"]
 # Evaluation parameters
 _D.evaluate = CN()
 _D.evaluate.reload_path = "results/fan_example/*/" # Can accept entire batch of results
-#_D.evaluate.evaluation_functions = ["test_func", "create_ranked_filters"]
-_D.evaluate.evaluation_functions = ["infant_test_func"]
+_D.evaluate.evaluation_functions = ["infant_test_func", "create_ranked_filters", "create_stacked_filter_responses"]
+_D.evaluate.param = 0
 
 # Misc parameters
 _D.misc = CN()

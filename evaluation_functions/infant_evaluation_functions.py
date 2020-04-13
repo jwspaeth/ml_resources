@@ -1,12 +1,31 @@
 
+import os
+
+from tensorflow.keras.models import Model
 from tensorflow.keras import backend as K
 import matplotlib.pyplot as plt
 import numpy as np
 
 def infant_test_func(*args):
+	"""Simple test function"""
 	print("Evaluation worked for filename {}!".format(args[5]))
 
+def create_eeg_labels(dataset, model, exp_cfg, revived_cfg, results, filename):
+
+	# Get activation output from model
+
+	# Filter activation output to get trigger points
+
+	# Save to disk
+
+	pass
+
 def create_ranked_filters(dataset, model, exp_cfg, revived_cfg, results, filename):
+	"""
+	Create a ranked list of filter figures
+
+	Still need to implement saving
+	"""
 
 	# Get filter matrix
 	filter_matrix = model.get_layer(name="conv").get_weights()[0]
@@ -27,30 +46,67 @@ def create_ranked_filters(dataset, model, exp_cfg, revived_cfg, results, filenam
 	dataset.set_fields(revived_cfg)
 	ins = np.stack( [subject[key] for key in sorted(subject.keys())] , axis=0)
 	outs = np.stack( [dataset._label_week(dataset._parse_week_time(key)) for key in sorted(subject.keys())] , axis=0)
-	preds = np.stack( [predictions[key] for key in sorted(predictions.keys())] , axis=0)
+	preds = np.stack( [np.squeeze(predictions[key]) for key in sorted(predictions.keys())] , axis=0)
+
+	# Sort filters based on loss
+	def loss(filter_ind):
+		return round(((outs-preds[:, filter_ind])**2).mean(axis=0), 2)
+
+	ranked_filter_list = list(range(filter_matrix.shape[2]))
+	ranked_filter_list.sort(key=loss)
 
 	# Plot
-	fig, axs = plt.subplots(filter_matrix.shape[2], 2)
-	for filter_ind in range(axs.shape[0]):
+	fig, axs = plt.subplots(filter_matrix.shape[2], 2, figsize=(11, 8))
+	for i, filter_ind in enumerate(ranked_filter_list):
 		# Plot filters with their channels in the first column
 		for channel_ind in range(filter_matrix.shape[1]):
-			axs[filter_ind, 0].plot(filter_matrix[:, channel_ind, filter_ind])
+			axs[i, 0].plot(filter_matrix[:, channel_ind, filter_ind], label=revived_cfg.dataset.feature_names[channel_ind])
+		axs[i, 0].set_xlabel("Time (s)")
+		axs[i, 0].set_ylabel("Coefficient")
+		axs[i, 0].legend(loc="upper left", bbox_to_anchor=(1, 1))
+		axs[i, 0].text(.2, 1.3, 'Filter #: {}'.format(filter_ind), horizontalalignment='center',
+			verticalalignment='center', transform=axs[i, 0].transAxes)
 
 		# Plot labels and their corresponding predictions in the right column
-		axs[filter_ind, 1].plot(outs)
-		axs[filter_ind, 1].plot( preds[:, filter_ind] )
-	plt.show()
+		axs[i, 1].plot(outs, label="True")
+		axs[i, 1].plot(preds[:, filter_ind], label="Predicted")
+		axs[i, 1].set_xlabel("Week")
+		axs[i, 1].set_ylabel("Rate")
+		axs[i, 1].legend(loc="upper left", bbox_to_anchor=(1, 1))
+		axs[i, 1].text(.2, 1.3, 'Loss: {}'.format(loss(filter_ind)), horizontalalignment='center',
+			verticalalignment='center', transform=axs[i, 1].transAxes)
 
+	fig.tight_layout()
+	#plt.show()
+
+	fig.savefig("{}ranked_filters.png".format(filename), dpi=fig.dpi)
 
 def create_stacked_filter_responses(dataset, model, exp_cfg, revived_cfg, results, filename):
-	
+
 	# Get input data
 	data = dataset.load_data()
 
 	# Get filter response matrix
+	conv_layer_output = model.get_layer(name="conv").output
+	filter_response = K.function(inputs=model.inputs, outputs=conv_layer_output)(data)
 
-	# Plot
-	fig, axs = plt.subplots(2, sharex=True, sharey=True)
+	# Create directory for results
+	filename = "{}stacked_filter_responses/".format(filename)
+	if not os.path.exists(filename):
+		os.mkdir(filename)
+
+	# Create one figure for each week
+	for week_ind in range(filter_response.shape[0]):
+
+		fig, axs = plt.subplots(1, figsize=(11, 8))
+		for filter_ind in range(filter_response.shape[2]):
+			axs.plot(filter_response[week_ind, :, filter_ind], label="Response {}".format(filter_ind))
+			axs.set_ylim([-.1, 1.1])
+
+		fig.tight_layout()
+		#plt.show()
+
+		fig.savefig("{}week_{}.png".format(filename, week_ind), dpi=fig.dpi)
 
 def created_stacked_filter_responses_across_weeks(dataset, model, exp_cfg, revived_cfg, results, filename):
 	

@@ -24,6 +24,7 @@ def fan(input_size, exp_cfg):
                 strides=exp_cfg.model.conv.strides,
                 max_pool_sizes=exp_cfg.model.conv.max_pool_sizes,
                 batch_norms=exp_cfg.model.conv.batch_norms,
+                activation="sigmoid",
                 l2=exp_cfg.model.conv.l2,
                 cross_activation_lambda=exp_cfg.model.conv.cross_activation_lambda,
                 activation_lambda=exp_cfg.model.conv.activation_lambda,

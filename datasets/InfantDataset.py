@@ -10,6 +10,7 @@ import pandas as pd
 class InfantDataset:
 
     # Data path
+    # EDIT THIS TO WORK ON YOUR MACHINE
     if "-s" in sys.argv:
         data_path = "/home/jwspaeth/datasets/baby1/"
     else:
