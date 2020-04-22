@@ -7,9 +7,9 @@ import numpy as np
 from custom_layers import pipe_model, conv_stack_1d
 
 # To Do
-#   • Incomplete: Rebuild visualizations
-#   • Incomplete: Verify training is working correctly
 #   • Incomplete: Figure out why labels work despite mismatch
+#   • Incomplete: Verify training is working correctly
+#   • Incomplete: Rebuild rest of visualizations
 
 def fan(input_size, exp_cfg):
     """Constructs the frequency analysis neural network"""
@@ -61,6 +61,9 @@ def fan(input_size, exp_cfg):
     # Pipe model by feeding through input placeholder
     inputs = Input(shape=input_size)
     outputs = pipe_model(inputs, layers)
+
+    print("Model inputs: {}".format(inputs))
+    print("Model outputs: {}".format(outputs))
 
     return Model(inputs=inputs, outputs=outputs)
 

@@ -6,11 +6,11 @@ from custom_losses import fan_mse
 _D = CN()
 
 # Training or evaluation
-_D.mode = "eval"
+_D.mode = "train"
 
 # Save parameters
 _D.save = CN()
-_D.save.experiment_batch_name = "fan_example"
+_D.save.experiment_batch_name = "fan_label_debug"
 
 # Dataset parameters
 _D.dataset = CN()
@@ -31,9 +31,9 @@ _D.model.conv.kernels = [25] # Half second window
 _D.model.conv.strides = [1] # Don't touch
 _D.model.conv.max_pool_sizes = [] # Don't touch
 _D.model.conv.batch_norms = [0] # Don't touch
-_D.model.conv.l2 = .00001
-_D.model.conv.activation_lambda = .00001
-_D.model.conv.cross_activation_lambda = .1
+_D.model.conv.l2 = 0#.00001
+_D.model.conv.activation_lambda = 0#.00001
+_D.model.conv.cross_activation_lambda = 0#.1
 _D.model.conv.names = ["conv"]
 _D.model.max_pool = CN()
 _D.model.max_pool.pool_size = (10 * 50) # Seconds * (timesteps/second)
@@ -50,7 +50,7 @@ _D.model.reload_path = ""
 # Training parameters
 _D.train = CN()
 _D.train.learning_rate = .001
-_D.train.epochs = 10
+_D.train.epochs = 40000
 _D.train.batch_size = 32
 _D.train.loss = "fan_mse"
 _D.train.metrics = []
@@ -62,7 +62,7 @@ _D.callbacks.names = ["FileMetricLogger"]
 
 # Evaluation parameters
 _D.evaluate = CN()
-_D.evaluate.reload_path = "results/fan_example/*/" # Can accept entire batch of results
+_D.evaluate.reload_path = "results/fan_run_1/*/" # Can accept entire batch of results
 _D.evaluate.evaluation_functions = ["infant_test_func", "create_ranked_filters", "create_stacked_filter_responses"]
 _D.evaluate.param = 0
 
