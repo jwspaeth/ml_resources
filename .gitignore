@@ -1,5 +1,7 @@
 results/*
 !results/.gitkeep
+job_output/*
+!job_output/.gitkeep
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
