@@ -13,6 +13,8 @@ class FaaDataset():
     """
     Represents the faa data.
     """
+
+    # EDIT THIS TO WORK ON YOUR OWN MACHINE
     # Data path
     if "-s" in sys.argv:
         data_path = "/home/jwspaeth/datasets/faa/"
