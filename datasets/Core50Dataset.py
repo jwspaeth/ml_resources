@@ -8,6 +8,7 @@ import numpy as np
 class Core50Dataset:
     """Handler for Core50 dataset used in this class"""
 
+    # EDIT THIS TO WORK ON YOUR OWN MACHINE
     # Data path
     if "-s" in sys.argv:
         data_path = "/home/fagg/ml_datasets/core50/core50_128x128/"
