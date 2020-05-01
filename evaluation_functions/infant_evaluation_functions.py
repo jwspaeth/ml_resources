@@ -40,22 +40,41 @@ def create_ranked_filters(dataset, model, exp_cfg, revived_cfg, results, filenam
 	# Aggregate predictions for each week
 	predictions = {}
 	for key in subject.keys():
+		print("Key: {}, {}".format(key, subject[key].shape))
 		predictions[key] = model.predict(np.expand_dims(subject[key].to_numpy(), axis=0))
+		print("Prediction on {}: {}".format(key, predictions[key]))
 
 	# Align ins, outs, and predictions for each week
 	dataset.set_fields(revived_cfg)
 	ins = np.stack( [subject[key] for key in sorted(subject.keys())] , axis=0)
 	outs = np.stack( [dataset._label_week(dataset._parse_week_time(key)) for key in sorted(subject.keys())] , axis=0)
+	outs_x = np.stack( [dataset._parse_week_time(key) for key in sorted(subject.keys())], axis=0 )
 	preds = np.stack( [np.squeeze(predictions[key]) for key in sorted(predictions.keys())] , axis=0)
+
+	# Get the nan indices for the weeks which aren't present
+	def get_nan_indices(x):
+		x = x.astype(float)
+
+		nan_indices = []
+		for i in range(x.shape[0]-1):
+			print("I: {}".format(i))
+			if x[i+1]-x[i] != 1:
+				nan_indices.append(i+1)
+		
+		return nan_indices
+	nan_indices = get_nan_indices(outs_x)
 
 	# Sort filters based on loss
 	def loss(filter_ind):
-		return round(((outs-preds[:, filter_ind])**2).mean(axis=0), 2)
+		print("Out average: {}".format( round(outs.mean(axis=0), 2) ))
+		print("Pred average: {}".format( round(preds[:, filter_ind].mean(axis=0), 2) ))
+		return round(((outs-preds[:, filter_ind])**2).mean(axis=0), 4)
 
 	ranked_filter_list = list(range(filter_matrix.shape[2]))
 	ranked_filter_list.sort(key=loss)
 
 	# Plot
+	print("Outs_x: {}".format(np.insert(outs, nan_indices, np.nan)))
 	fig, axs = plt.subplots(filter_matrix.shape[2], 2, figsize=(11, 8))
 	for i, filter_ind in enumerate(ranked_filter_list):
 		# Plot filters with their channels in the first column
@@ -68,8 +87,12 @@ def create_ranked_filters(dataset, model, exp_cfg, revived_cfg, results, filenam
 			verticalalignment='center', transform=axs[i, 0].transAxes)
 
 		# Plot labels and their corresponding predictions in the right column
-		axs[i, 1].plot(outs, label="True")
-		axs[i, 1].plot(preds[:, filter_ind], label="Predicted")
+		axs[i, 1].plot(np.insert(outs, nan_indices, np.nan), label="True")
+		axs[i, 1].plot(np.insert(preds[:, filter_ind], nan_indices, np.nan), label="Predicted")
+		axs[i, 1].set_xticks(list(range(outs.shape[0] + len(nan_indices))))
+		xticklabels = list(range(outs.shape[0] + len(nan_indices)))
+		xticklabels = [x+1 for x in xticklabels]
+		axs[i, 1].set_xticklabels(xticklabels)
 		axs[i, 1].set_xlabel("Week")
 		axs[i, 1].set_ylabel("Rate")
 		axs[i, 1].legend(loc="upper left", bbox_to_anchor=(1, 1))

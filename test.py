@@ -14,14 +14,15 @@ import datasets
 
 if __name__ == "__main__":
     dataset = datasets.InfantDataset()
+    dataset.feature_names = ["left_wrist_x", "left_wrist_y", "left_wrist_z"]
     dataset.offset = 6
-    dataset.train_subject_names = ["k3", "c2"]
+    dataset.train_subject_names = ["k3"]
     training_data = dataset.load_data()
 
     print("Train ins shape: {}".format(training_data["train"]["ins"].shape))
     print("Train outs shape: {}".format(training_data["train"]["outs"].shape))
 
+    for i in range(training_data["train"]["ins"].shape[0]):
+        plt.plot(training_data["train"]["ins"][i, :, 0])
 
-    #plt.plot(curve)
-    #plt.ylim(0, 1)
-    #plt.show()
+    plt.show()

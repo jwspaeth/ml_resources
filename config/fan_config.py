@@ -10,13 +10,13 @@ _D.mode = "train"
 
 # Save parameters
 _D.save = CN()
-_D.save.experiment_batch_name = "fan_label_debug"
+_D.save.experiment_batch_name = "fan_debug_2"
 
 # Dataset parameters
 _D.dataset = CN()
 _D.dataset.name = "InfantDataset"
 _D.dataset.shape = "sigmoid"
-_D.dataset.offset = 6
+_D.dataset.offset = 8
 _D.dataset.feature_names = ["left_wrist_x", "left_wrist_y", "left_wrist_z"]
 _D.dataset.train_subject_names = ["k3"]
 _D.dataset.val_subject_names = []
@@ -50,7 +50,7 @@ _D.model.reload_path = ""
 # Training parameters
 _D.train = CN()
 _D.train.learning_rate = .001
-_D.train.epochs = 40000
+_D.train.epochs = 10000
 _D.train.batch_size = 32
 _D.train.loss = "fan_mse"
 _D.train.metrics = []
@@ -62,7 +62,7 @@ _D.callbacks.names = ["FileMetricLogger"]
 
 # Evaluation parameters
 _D.evaluate = CN()
-_D.evaluate.reload_path = "results/fan_run_1/*/" # Can accept entire batch of results
+_D.evaluate.reload_path = "results/fan_debug_2/*/" # Can accept entire batch of results
 _D.evaluate.evaluation_functions = ["infant_test_func", "create_ranked_filters", "create_stacked_filter_responses"]
 _D.evaluate.param = 0
 

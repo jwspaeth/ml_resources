@@ -37,6 +37,10 @@ class InfantDataset:
     def get_input_size(self):
         return (15000, len(self.feature_names))
 
+    def get_nan_indices(self):
+        dataset = self.load_data()
+
+
     def load_data(self):
         """Loads data for training"""
         train_subjects_dict = self.load_subjects(self.train_subject_names)
@@ -50,10 +54,12 @@ class InfantDataset:
 
         if self.feature_names:
             for subject_name, week_dict in train_subjects_dict.items():
+                print("Subject name: {}".format(subject_name)) ##
                 for week_name, week_dataframe in week_dict.items():
                     data_dict["train"]["ins"].append( week_dataframe[self.feature_names].to_numpy() )
                     week_time = self._parse_week_time(week_name)
                     data_dict["train"]["outs"].append( self._label_week(week_time) )
+                    print("Week: {}, {}".format(week_name, self._label_week(week_time))) ##
         else:
             for subject_name, week_dict in train_subjects_dict.items():
                 for week_name, week_dataframe in week_dict.items():
